@@ -8,17 +8,34 @@ function Animal({image_url,title, description, keyword, horns }) {
   this.horns = horns;
 }
 
+function displayImages(data) {
+  const template = $('#photo-template');
+  data.forEach(item => {
+    const element = $(`<div data-keyword='${item.keyword}'></div>`);
+    element.html($(template.html()));
+    $(element).find('h2').text(item.title);
+    $(element).find('img').attr({ src: item.src, alt: item.description});
+    $(element).find('p').text('Horns: ' + item.horns);
+    $('main').append(element);
+  });
+}
+
+function populateOptions(data) {
+  const options = [...new Set(data.map(item => item.keyword))];
+  const selectControl = $('#filterSelector');
+  const optionElements = options.map(o => $(`<option value='${o}'>${o}</option>`));
+  selectControl.append(optionElements);
+  selectControl.on('change', (event) => {
+    const keyword = event.currentTarget.value;
+    $('main div').hide();
+    $(`[data-keyword='${keyword}']`).show();
+  });
+}
+
 $(function () {
   $.ajax('/data/page-1.json').then(data => {
     const animals = data.map(item => new Animal(item));
-    const template = $('#photo-template');
-    animals.forEach(animal => {
-      const e = $(`<div></div>`);
-      e.html($(template.html()));
-      $(e).find('h2').text(animal.title);
-      $(e).find('img').attr({ src: animal.src, alt: animal.description });
-      $(e).find('p').text('Horns: ' + animal.horns);
-      $('main').append(e);
-    });
+    displayImages(animals);
+    populateOptions(animals);
   });
 });

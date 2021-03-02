@@ -1,0 +1,26 @@
+main {
+ max-width: 1440px;
+ margin: 20px auto;
+}
+
+.col-1-4 {
+    width: 24%;
+}
+
+.col-1-1 {
+    width: 100%;
+}
+
+.grid:after {
+    content: "";
+    display: table;
+    clear:both
+}
+
+.row {
+    width: 100%
+}
+
+footer {
+    text-align: center;
+}

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.card {
+    font-family: Roboto;
+    width: 290px;
+    margin: 0 32px 40px;
+}
+
+.card img {
+    width: 290px;
+    height:  250px;
+}
+
+.card h2 {
+    font-size: 24px;
+    margin: 4px 0;
+}
+
+.card p {
+    font-size: 18px;
+    margin: 4px 0;
+}
+
+.card span {
+    font-size: 18px;
+}
+
+header {
+    height: 100px;
+    padding-top: 20px;
+    background-color: #eb8320;
+    text-align: center
+}
+
+header h1 {
+    color: white;
+    font-family: Roboto;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.actions {
+    color: white;
+    font-family: Roboto;
+    width: 100%;
+    height: 64px;
+    background-color: #efa423;
+    padding: 10px 20px;
+}
+.actions > div {
+    margin:0 auto;
+    max-width: 1440px;
+}
+
+@media screen and (max-width: 420px) {
+    header h1 {
+        font-size: 36px;
+    }
+
+    .actions { 
+        height: 128px;
+        padding: 0;
+    }
+
+    .actions > div > div {
+        width: 100%;
+        height: 64px;
+        background-color: #efa423;
+        padding: 10px 20px;
+        text-align: center;
+    }
+    .left, .right {
+      margin-left:auto;
+      margin-right:auto;
+      float: none;
+    }
+}
+
+.row {
+    clear: both;
+}
+
+#filterSelector {
+ text-transform: uppercase;
+ border: none;
+}
+
+.btn {
+  background-color: #810022;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  height: 42px;
+  width: 105px
+}
+
+.btn:hover {
+    background-color: #62e71A;
+}
